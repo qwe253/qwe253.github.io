@@ -13,6 +13,7 @@
         div{
             color: blue;
         }
+        
 	</style>
 </head>
 	<body>
@@ -32,16 +33,29 @@
         for (i=1;i<=100;i++){
             countI +=i;
         }    
-        document.write("<p>6.從1到100的總和為"+countI+"</p>")  
+        document.write("<p>6.從1加到100的總和為"+countI+"</p>") 
+            
         function sum(no){
             count=0;
             for (i=1;i<=no;i++){
             count +=i;
-            }
-            document.write("<p>count</p>")
+            }}
+        sum(10);
+            document.write("<p>7.從1加到10的總合為"+count+"</p>");
+        sum(100);
+            document.write("<p>8.從1加到100的總合為"+count+"</p>");
+        sum(1000);
+            document.write("<p>9.從1加到1000的總合為"+count+"</p>");
+        sum(10000); 
+            document.write("<p>10.從1加到10000的總合為"+count+"</p>");
+        document.write("<div>以下為九九乘法表</div>")
+        for (var i=1;i<=9;i++){document.write("<p></p>")
+            for(var j=1;j<=9;j++)
+                {
+                document.write(i + "*" + j + "=" + i*j);
+                }
         }
-        var no=10
-        document.write(count)
+
         </script>
 	</body>
 </html>
