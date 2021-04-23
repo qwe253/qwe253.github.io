@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+		<title>課堂作業06</title>
+	<style>
+        h4{
+            color: red;
+        }
+        div{
+            color: blue;
+            margin:  5px;
+        }
+        
+	</style>
+</head>
+	<body>
+    <form id="form01">  
+        姓名: <input type="text" name="name01" value="蔡承諠"><br> 
+        收件住址: <input type="text" name="address01" value="新北市板橋區四川路54號7樓"><br>
+        電話: <input type="tel" name="tel01" value="0922070080"><br>
+        電子郵件: <input type="email" name="email01" value="erica070080@gmail.com"><br> 
+        指定送貨日期: <input type="date" name="date01"><br> 
+        商品種類: <br><input type="radio" name="p" id="p01" value="Sennheiser 森海塞爾 真無線藍牙耳機二代 黑色
+MOMENTUM True Wireless 2
+$9990
+">Sennheiser 森海塞爾 真無線藍牙耳機二代 黑色
+MOMENTUM True Wireless 2
+$9990
+ 9990元<br>
+        <input type="radio" name="p" id="p02" value="森海塞爾 Sennheiser CX 400BT True Wireless 黑色 真無線藍牙耳機">森海塞爾 Sennheiser CX 400BT True Wireless 黑色 真無線藍牙耳機 6490元<br>
+        <input type="radio" name="p" id="p03" value="森海塞爾 Sennheiser CX 150BT 無線藍牙頸掛入耳式耳機 - 黑色">森海塞爾 Sennheiser CX 150BT 無線藍牙頸掛入耳式耳機 - 黑色 2490元<br>
+        <input type="radio" name="p" id="p04" value="森海塞爾 Sennheiser MOMENTUM Wireless M3AEBTXL 主動降噪藍牙耳罩式耳機">森海塞爾 Sennheiser MOMENTUM Wireless M3AEBTXL 主動降噪藍牙耳罩式耳機 13900元<br>
+        <input type="radio" name="p" id="p05" value="Sennheiser GSP 600 密閉式電競耳機麥克風">Sennheiser GSP 600 密閉式電競耳機麥克風 8490元<br>
+    </form>
+        
+        <button onclick="shoppingInfo()"><h4>結帳</h4></button>
+        <div id="demo"></div>
+        <script>
+            function shoppingInfo() {
+                var x =document.getElementById("form01");
+                var item = "";
+                var price = 0;
+                var text = "<h4>您的購物資訊如下:</h4>";
+                var i;
+                text += "<table border='1' width='90%' cellspacing='0' cellpadding='0'>";
+                
+                for (i = 0; i < 5;  i++) {
+                    text += "<tr>";
+                    switch (i){
+                        case 0:
+                            item = "姓名: ";
+                            break;
+                        case 1:
+                            item = "收件住址: ";
+                            break;
+                        case 2:
+                            item = "電話: ";
+                            break;
+                        case 3:
+                            item = "電子郵件: ";
+                            break; 
+                        case 4:
+                            item = "指定送貨日期: ";
+                            break;    
+                    }
+                    text += "<td>" + item + "</td>" + "<td>" + x.elements[i].value +"</td>";
+                    text += "</tr>";
+                }
+            for (i=5; i<=9; i++) {
+                if(x.elements[i].checked == true){
+                    switch(i){
+                        case 5: price=9990; break;
+                        case 6: price=6490; break;
+                        case 7: price=2490; break;
+                        case 8: price=13900; break;
+                        case 9: price=8490; break;    
+                    }
+                    text += "<tr><td>商品種類: </td>" + "<td>" + x.elements[i].value + "</td></tr>";
+                    text += "<tr><td>價格合計: </td>" + "<td>" + price + "元</td><tr>";
+                }
+                text += "</tr>";
+            }
+                text += "</table>";
+            document.getElementById("demo").innerHTML =text;    
+            }
+        </script>
+	</body>
+</html>
